@@ -64,20 +64,23 @@ That should then bring in the GoCardlessPro dependency.
 
 Install it through the CiviCRM Extensions screen as usual (you may need to click Refresh).
 
-Go to Administer » CiviContribute » Payment Processors then click **Add New**
+Go to Administer » System Settings » Payment Processors then click **Add New**
 
 - Select **GoCardless** from the *Payment Processor Type*
-- give it a name.
+- Give it a name.
 - Select **GoCardless Direct Debit** from the *Payment Method*
-- Add your access tokens (you obvs need a GoCardless account to do this)
-- make up unique and secure webhook secrets
+- Add your access tokens (You need a GoCardless account already set up)
+ - Log into the Developer section of your GoCardless account, Add New Access Token with Read & Write access
+- Make up your own webhook secret password which should be unique and secure
 - click *Save*.
 
 **Note: for testing purposes you may put your test/sandbox credentials in the Live fields, but you must use CiviCRM's 'test drive' mode for trying payments; live mode will NOT work with test credentials since they are authenticated against different GoCardless API end points.** So your live testing will need to be with real-world live data.
 
 ### 3. Install your webhook at GoCardless
 
-GoCardless has full separation of its test (sandbox) and live account management pages, so **you'll do this twice**. Be sure to supply the webhook secret appropriate to the test/live environments - you **must** choose a different secret for live/test.
+GoCardless has full separation of its test (sandbox) and live account management pages, so **you'll do this next step twice**. Be sure to supply the webhook secret appropriate to the test/live environments - you **must** choose a different secret for live/test.
+
+When you go into the Delevoper section of your GoCardless account, create your webhook endpoint.
 
 The webhook URL is at:
 
